@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Movimiento armónico simple</title>
+    <link rel="icon" type="image/x-icon" href="images/physics.png" />
+
+    <link rel="stylesheet" type="text/css" href="style.css" />
+
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <script src="../libraries/p5.min.js"></script>
+    <script src="../libraries/p5.sound.min.js"></script>
+    <script src="../libraries/quicksettings.js"></script>
+    <script src="../libraries/p5.gui.js"></script>
+    <script src="../libraries/p5.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="../Amortiguado/Amortiguado.html">Sistema amortiguado</a></li>
+          <li><a href="../Forzado/Forzado.html">Sistema forzado</a></li>
+          <!-- Añade más enlaces aquí -->
+        </ul>
+      </nav>
+    </header>
+
+      <h1>SIMULACIÓN M.A.S.</h1>
+      <div class="main-container">
+        <div class="slider-container">
+          <div class="slider-item">
+              <p class="info-text">Masa (kg): <span id="masaInfo">18</span></p>
+              <input type="range" id="sliderMasa" min="1" max="50" value="1" step="1" oninput="updateSliderValue('sliderMasa', 'sliderMasaValue')" />
+          </div>
+          <div class="slider-item">
+              <p class="info-text">Constante Elástica (N/m): <span id="sliderKValue">10</span></p>
+              <input type="range" id="sliderK" min="1" max="100" value="10" step="1" oninput="updateSliderValue('sliderK', 'sliderKValue')" />
+          </div>
+          <div class="slider-item">
+              <p class="info-text">Longitud Cuerda (m): <span id="sliderLValue">170</span></p>
+              <input type="range" id="sliderL" min="0.68" max="3" value="2" step="0.01" oninput="updateSliderValue('sliderL', 'sliderLValue')" />
+          </div>
+          <div class="slider-item">
+              <p class="info-text">Ángulo (grados): <span id="sliderAnguloValue">10</span></p>
+              <input type="range" id="sliderAngulo" min="-15" max="15" value="0" step="0.1" oninput="updateSliderValue('sliderAngulo', 'sliderAnguloValue')" />
+          </div>
+          <div class="slider-item">
+              <p class="info-text">Radio Disco (m): <span id="sliderDiscoValue">30</span></p>
+              <input type="range" id="sliderDisco" min="0.1" max="1" value="0.2" step="0.1" oninput="updateSliderValue('sliderDisco', 'sliderDiscoValue')" />
+          </div>
+          <div class="slider-item">
+              <p class="info-text">Velocidad inicial (rads/s): <span id="sliderVelocidadValue">4</span></p>
+              <input type="range" id="sliderVelocidad" min="-6.28" max="6.28" value="-0.39" step="0.01" oninput="updateSliderValue('sliderVelocidad', 'sliderVelocidadValue')" />
+          </div>
+          <div class="slider-item" id="Ecuacion">
+          </div>
+          <div class="controls-container">
+              <button id="simularButton" class="button-start">Simular</button>
+              <button id="reiniciarButton" class="button-stop">Pausar</button>
+          </div>
+        </div> 
+      
+        <div id="p5-container" class="p5-container"></div> 
+        <script src="MAS.js"></script>
+        <div class="graphs-container">
+            <div id="Movimientos">    
+            </div>
+      </div>
+      </div>
+  </body>
+</html>
